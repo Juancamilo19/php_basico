@@ -37,3 +37,38 @@ Route::get('arreglos', function(){
     var_dump($estudiantes);
 });
 
+Route::get('paises', function () {
+
+    $paises= ["colombia" =>[
+                            "capital" => "Bogotá",
+                            "moneda" => "Peso",
+                            "poblacion" => 50
+
+    ],
+              "peru" =>[
+                "capital" => "Lima",
+                "moneda" => "Sol",
+                "poblacion" => 32
+              ],
+              "paraguay"=>[
+                "capital" => "Asuncion",
+                "moneda" => "Guarani",
+                "poblacion" => 7
+
+              ]
+            ];
+
+
+           return view('paises')->with("naciones" , $paises);
+
+
+
+
+
+});
+
+Route::get('formulario_buscador', "MetabuscadorController@formulario_buscador");
+
+Route::post('buscar', "MetabuscadorController@buscar");
+
+
